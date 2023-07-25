@@ -109,7 +109,7 @@ curl --location 'http://localhost:3000/api/youtube'
 ```
 
 ```bash
-curl --location 'http://localhost:3000/api/youtube?search=%20
+curl --location 'http://localhost:3000/api/youtube?search=%20'
 
 {
     "msg": "Bad Request: search can't be empty"
@@ -118,8 +118,8 @@ curl --location 'http://localhost:3000/api/youtube?search=%20
 
 #### Web page
 
-if you go to localhost:3000/ 
-you see this
+if you go to `http://localhost:3000/` 
+you will see this
 ![image1](/doc/image1.png?raw=true "image1")
 
 you can search for everything
@@ -128,4 +128,7 @@ you can search for everything
 get the result
 ![image3](/doc/image3.png?raw=true "image3")
 
-Enjoy!!!
+### Enjoy!!!
+
+## Author
+* **Ismael Torres** - [Github](https://github.com/Tower95)
