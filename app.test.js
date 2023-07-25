@@ -1,10 +1,10 @@
 'use strict'
-const request = require('supertest');
-const { describe, expect, test } = require('@jest/globals');
-const axios = require('axios');
+const request = require('supertest')
+const { describe, expect, test } = require('@jest/globals')
+const axios = require('axios')
 const app = require('./app')
 
-jest.mock('axios');
+jest.mock('axios')
 
 describe('My youtube search', () => {
 
@@ -57,11 +57,11 @@ describe('My youtube search', () => {
       ]
     }
 
-    axios.get.mockResolvedValueOnce({ data });
+    axios.get.mockResolvedValueOnce({ data })
 
-    const response = await request(app).get('/api/youtube?search=muse');
+    const response = await request(app).get('/api/youtube?search=muse')
 
-    expect(response.statusCode).toBe(200);
+    expect(response.statusCode).toBe(200)
 
     expect(response.body).toEqual(
       {
@@ -81,47 +81,47 @@ describe('My youtube search', () => {
           }
         ]
       }
-    );
-  });
+    )
+  })
 
   test('Empty "search" case', async () => {
 
-    const response = await request(app).get('/api/youtube?search=');
+    const response = await request(app).get('/api/youtube?search=')
 
-    expect(response.statusCode).toBe(400);
+    expect(response.statusCode).toBe(400)
 
     expect(response.body).toEqual(
       {
         "msg": "Bad Request: search is required"
       }
-    );
-  });
+    )
+  })
 
   test('Without "search" case', async () => {
 
-    const response = await request(app).get('/api/youtube');
+    const response = await request(app).get('/api/youtube')
 
-    expect(response.statusCode).toBe(400);
+    expect(response.statusCode).toBe(400)
 
     expect(response.body).toEqual(
       {
         "msg": "Bad Request: search is required"
       }
-    );
-  });
+    )
+  })
 
   test('Only Space "search" case', async () => {
 
-    const response = await request(app).get('/api/youtube?search=%20');
+    const response = await request(app).get('/api/youtube?search=%20')
 
-    expect(response.statusCode).toBe(400);
+    expect(response.statusCode).toBe(400)
 
     expect(response.body).toEqual(
       {
         "msg": "Bad Request: search can't be empty"
       }
-    );
-  });
+    )
+  })
 
   test('No results found case', async () => {
 
@@ -136,33 +136,33 @@ describe('My youtube search', () => {
       "items": []
     }
 
-    axios.get.mockResolvedValueOnce({ data });
+    axios.get.mockResolvedValueOnce({ data })
 
-    const response = await request(app).get('/api/youtube?search=asdfopuaslidfujiolasdufoi');
+    const response = await request(app).get('/api/youtube?search=asdfopuaslidfujiolasdufoi')
 
-    expect(response.statusCode).toBe(404);
+    expect(response.statusCode).toBe(404)
 
     expect(response.body).toEqual(
       {
         "msg": "No results found"
       }
-    );
-  });
+    )
+  })
 
   test('Service Faild case', async () => {
 
-    axios.get.mockRejectedValueOnce(new Error('Testing Error'));
+    axios.get.mockRejectedValueOnce(new Error('Testing Error'))
 
-    const response = await request(app).get('/api/youtube?search=muse');
+    const response = await request(app).get('/api/youtube?search=muse')
 
 
-    expect(response.statusCode).toBe(500);
+    expect(response.statusCode).toBe(500)
 
     expect(response.body).toEqual(
       {
         "msg": "Internal Server Error"
       }
-    );
-  });
+    )
+  })
 
-});
+})

@@ -1,0 +1,13 @@
+.card_link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card_link:hover {
+  text-decoration: none;
+}
+
+.card_animation:hover {
+  transform: translateY(-15px);
+  transition: transform ease 0.5s;
+}

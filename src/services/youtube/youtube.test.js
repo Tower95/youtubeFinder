@@ -1,9 +1,9 @@
 'use strict'
-const { describe, expect, test } = require('@jest/globals');
-const youtube = require('./youtube');
-const axios = require('axios');
+const { describe, expect, test } = require('@jest/globals')
+const youtube = require('./youtube')
+const axios = require('axios')
 
-jest.mock('axios');
+jest.mock('axios')
 
 describe('Testing Youtube Services', () => {
 
@@ -56,11 +56,11 @@ describe('Testing Youtube Services', () => {
       ]
     }
 
-    axios.get.mockResolvedValue({ data });
+    axios.get.mockResolvedValue({ data })
 
     return youtube.search('mouse').then(response => {
-      expect(response).toEqual(data);
-    });
+      expect(response).toEqual(data)
+    })
 
-  });
-});
+  })
+})

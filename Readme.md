@@ -24,6 +24,13 @@ this is necesary just on NodeJS
 npm install
 ```
 
+## How to test
+This project use Jest and supertest for testing
+
+```bash
+npm run test
+```
+
 ## How to run
 #### NodeJS
 ```bash
@@ -53,6 +60,8 @@ docker-compose up
 ```
 
 ## Documentation
+
+#### Rest API
 
 Rest API have one endpoint `/api/youtube`
 can recive the url params `search`
@@ -107,4 +116,16 @@ curl --location 'http://localhost:3000/api/youtube?search=%20
 }
 ```
 
+#### Web page
 
+if you go to localhost:3000/ 
+you see this
+![image1](/doc/image1.png?raw=true "image1")
+
+you can search for everything
+![image2](/doc/image2.png?raw=true "image2")
+
+get the result
+![image3](/doc/image3.png?raw=true "image3")
+
+Enjoy!!!
